@@ -112,10 +112,24 @@ const fi = (function() {
     },
 
     sortBy: function(collection, callback) {
+<<<<<<< HEAD
       let sorted = [...collection];
       return sorted.sort(function(a,b){
         return callback(a) - callback(b)
       })
+=======
+      let sorted = [];
+      if (typeof collection === "array"){
+        for(let item of collection){
+          sorted.push(callback(item))
+        } sorted.sort
+        return sorted
+      } else if (typeof collection === "object"){
+        for (let item in collection) {
+          sorted.push(callback(item))
+        } return sorted.sort
+      }
+>>>>>>> 2183db0fd385bcb72630d14e964bd10d6680e5d1
     },
 //[1, [2], [3, [[4]]]]) returns => [1, 2, 3, 4];
 //myArray.reduce((c, v) => c.concat(v), []).map(o => o.id);
